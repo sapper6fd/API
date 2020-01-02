@@ -17,7 +17,7 @@ namespace Outmatch.API.Controllers
     // [Route("api/[controller]")]
     // [ApiController]
     [Authorize]
-    [Route("api/users/{userid}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class LocationsController : ControllerBase
     {
