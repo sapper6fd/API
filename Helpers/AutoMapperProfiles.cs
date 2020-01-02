@@ -12,6 +12,8 @@ namespace Outmatch.API.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<User, ClientForListDto>();
             CreateMap<UserForEditDto, User>();
+            CreateMap<LocationCreateDto, Locations>();
+            CreateMap<Locations, LocationCreateDto>();
         }
     }
 }

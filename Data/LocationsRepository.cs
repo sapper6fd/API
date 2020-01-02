@@ -38,7 +38,7 @@ namespace Outmatch.API.Data
             return locations;
         }
 
-        public async Task<bool> SalveAll()
+        public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;
 

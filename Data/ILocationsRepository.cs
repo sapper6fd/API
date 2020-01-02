@@ -9,7 +9,7 @@ namespace Outmatch.API.Data
     {
         void Add<T>(T entity) where T: class;
         void Delete<T>(T entity) where T: class;
-        Task<bool> SalveAll();
+        Task<bool> SaveAll();
         Task<IEnumerable<Locations>> GetLocations();
         Task<Locations> GetLocation(int id);
     }
