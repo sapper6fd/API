@@ -17,7 +17,7 @@ namespace Outmatch.API.Controllers
     // [Route("api/[controller]")]
     // [ApiController]
     [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/users/{userid}/[controller]")]
     [ApiController]
     public class LocationsController : ControllerBase
     {
@@ -61,13 +61,13 @@ namespace Outmatch.API.Controllers
             if (await _repo.SaveAll())
             {
                 var locationToReturn = _mapper.Map<LocationCreateDto>(newLocation);
-                return CreatedAtRoute("GetLocation", new { clientId, id = locationToReturn.Id }, locationToReturn);
+                return CreatedAtRoute(nameof(GetLocation), new { id = locationToReturn.Id, userid=clientId }, locationToReturn);
             }
             throw new Exception("Unable to create new location. Failed to save.");
         }
 
         // Get a specific location from the database
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = nameof(GetLocation))]
         public async Task<IActionResult> GetLocation(int id)
         {
             var location = await _repo.GetLocation(id);
